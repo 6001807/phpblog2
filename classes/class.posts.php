@@ -1,22 +1,13 @@
 <?php
-class Database {
-    protected $conn;
-    private $host = 'localhost';
-    private $dbName = 'phpblog';
-    private $user = 'root';
-    private $pass = '';
+include_once 'class.database.php';
 
-    public function connect() {
-        try {
-            $conn = new PDO('mysql:host=$this->host;dbname=$this->dbName', 'root', '');
-            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $this->conn = $conn;
-        } catch (PDOException $e) {
-            die($e->getMessage());
-        }
+class Post {
+    private $db;
+
+    public function __construct() {
+
+        
+        $this->db = new Database();
+        $this->db->connect();
     }
 }
-
-
-
-?>

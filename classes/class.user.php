@@ -3,8 +3,8 @@ include_once 'class.database.php';
 
 class User {
     private $db;
-    public $username;
-    public $password;
+    private $username;
+    private $password;
 
     public function __construct($username, $password) {
         $this->username = $username;
