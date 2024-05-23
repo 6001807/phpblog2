@@ -3,11 +3,10 @@ require_once('class.database.php');
 
 class User extends Database {
    
-    public $name;
+    public $username;
     public $password;
 
-    public function __construct($conn, $username, $password) {
-        parent::__construct($conn);
+    public function __construct($username, $password) {
         $this->username = $username;
         $this->password = $password;
     }
