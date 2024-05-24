@@ -3,8 +3,6 @@ class Database {
     protected $conn;
     private $host = 'localhost';
     private $dbName = 'phpblog';
-    private $user = 'root';
-    private $pass = '';
 
     public function connect() {
         try {
@@ -16,7 +14,7 @@ class Database {
         }
     }
 
-    public function execute($query, $params) {
+    public function execute($query, $params = array()) {
         try {
             $stmt = $this->conn->prepare($query);
             $stmt->execute($params);

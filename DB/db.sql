@@ -8,7 +8,8 @@ USE phpblog;
 CREATE TABLE Users (
     id INT(10) AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(100) NOT NULL,
-    password VARCHAR(255) NOT NULL
+    password VARCHAR(255) NOT NULL,
+    role_id INT(10) DEFAULT 0
 );
 
 -- Create Posts table
