@@ -25,7 +25,19 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     if(isset($_POST['newPost'])) {
-        $newPost = new Post($_POST['title'], $_POST['desc'], $_POST['content']);
+
+        if(isset($_FILES['FileToUpload'])) {
+            $dir = 'img/';
+            $uploadLoc = $dir . $_FILES['FileToUpload']['name'];
+
+            if(file_exists($uploadLoc)) {
+                echo 'Image already exists';
+            } else {
+                move_uploaded_file($_FILES["FileToUpload"]["tmp_name"], $uploadLoc);     
+            }
+        }
+
+        $newPost = new Post($_POST['title'], $_POST['desc'], $_POST['content'], $uploadLoc);
         $newPost->create();
         header('Location: ../phpblog2/admin.php');
     }

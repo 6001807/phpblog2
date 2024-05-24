@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel='stylesheet' href='./style.css'>
+    <link rel='stylesheet' href='./styl.css'>
 </head>
 <?php
     include_once 'classes/class.posts.php';
@@ -39,7 +39,7 @@
         </section>
     </header>
     <section id='content'>
-        <section class="post-item">
+        <section class="postitem">
             <h2><?php echo $post['title']; ?></h2>
             <p><?php echo $post['description']; ?></p>
             <p><?php echo $post['content']; ?></p>

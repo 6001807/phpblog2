@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel='stylesheet' href='./style.css'>
+    <link rel='stylesheet' href='./styl.css'>
 </head>
 <?php
     include_once 'classes/class.posts.php';
@@ -37,11 +37,16 @@
     <section id='post-list'>
         <?php foreach($allPosts as $post) { ?>
             <section class="post-item">
-                <h2><?php echo $post['title']; ?></h2>
-                <p><?php echo $post['description']; ?></p>
-                <p><?php echo $post['content']; ?></p>
-                <section class='linkto'>
-                    <p><a href="post.php?<?php echo 'id=' . $post['id'] ?>">Link to post</a></p>
+                <section class='post-image'>
+                    <img style='width: 250px;' src="<?php echo $post['image'] ?>" alt="">
+                </section>
+                <section class='post-info'>
+                    <h2><?php echo $post['title']; ?></h2>
+                    <p style='font-style: italic;'><?php echo $post['description']; ?></p>
+                    <p><?php echo $post['content']; ?></p>
+                    <section class='linkto'>
+                        <p><a href="post.php?<?php echo 'id=' . $post['id'] ?>">Link to post</a></p>
+                    </section>
                 </section>
             </section>
         <?php } ?>

@@ -46,6 +46,7 @@ class User {
             session_start();
             $_SESSION['username'] = $this->username;
             $_SESSION['role_id'] = $user['role_id'];
+            $_SESSION['id'] = $user['id'];
 
             header('Location: ../phpblog2/home.php');
             

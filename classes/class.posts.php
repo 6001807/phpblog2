@@ -6,19 +6,23 @@ class Post {
     private $title;
     private $description;
     private $text;
+    private $image;
+    private $user;
 
-    public function __construct($title = null, $description = null, $text = null) {
+    public function __construct($title = null, $description = null, $text = null, $image = null, $user = null) {
+        $this->user = isset($_SESSION['id']) ? $_SESSION['id'] : ''; 
         $this->title = $title;
         $this->description = $description;
         $this->text = $text;
+        $this->image = $image;
         
         $this->db = new Database();
         $this->db->connect();
     }
 
     public function create() {
-        $query = 'INSERT INTO posts (title, description, content) VALUES (:title, :description, :content)';
-        $params = array('title' => $this->title, 'description' => $this->description, 'content' => $this->text);
+        $query = 'INSERT INTO posts (title, description, content, image, user_id) VALUES (:title, :description, :content, :image, :user_id)';
+        $params = array('title' => $this->title, 'description' => $this->description, 'content' => $this->text, 'image' => $this->image, 'user_id' => $this->user);
         $this->db->execute($query, $params);  
     }
 
