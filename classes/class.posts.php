@@ -28,8 +28,8 @@ class Post {
         $this->db->execute($query, $params);    
     }
 
-    public function fetchAll() {
-        $query = 'select * from posts';
+    public function fetchAll($direction) {
+        $query = 'SELECT * FROM posts ORDER BY created_on ' . $direction;
         $results = $this->db->execute($query, array());
         return $results->fetchAll(PDO::FETCH_ASSOC);
     }
