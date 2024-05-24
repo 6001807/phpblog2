@@ -6,11 +6,16 @@
     <title>Document</title>
     <link rel='stylesheet' href='styles.css'>
 </head>
+<?php
+    session_start();
+
+    if($_SESSION['role_id'] == 1) {
+?>
 <body>
     <section class='link'>
         <p><a href="../phpblog2/home.php">Back to home</a></p>
     </section>
-    <h1>Welcome {name}</h1>
+    <h1>Welcome <?php echo $_SESSION['username']; ?></h1>
 
     <section id='new'>
         <form method='POST' action="process.php">
@@ -53,6 +58,11 @@
             <input class='submit' type="submit" name='newPost' value="Submit">
         </form>
     </section>
+<?php
+    } else {
+        header('Location: ../phpblog2/notAllowed.php');
+    }
+?>    
     
 </body>
 </html>

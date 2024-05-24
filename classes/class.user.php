@@ -7,7 +7,7 @@ class User {
     private $password;
     private $role_id;
 
-    public function __construct($username, $password, $role_id = 0) {
+    public function __construct($username = '', $password = '', $role_id = 0) {
         $this->username = $username;
         $this->password = $password;
         $this->role_id = $role_id;
@@ -24,8 +24,10 @@ class User {
         $this->db->execute($query, $params);  
     }
 
-    public function delete() {
-
+    public function delete($id) {
+        $query = 'delete from users WHERE id = :id';
+        $params = array('id' => $id);
+        $this->db->execute($query, $params);    
     }
 
     public function logIn() {
@@ -36,19 +38,41 @@ class User {
         $user = $result->fetch(PDO::FETCH_ASSOC);
 
         if(!$user) {
-            header('Location: ../phpblog2/notAllowed.php');
+            header('Location: ../phpblog2/login.php');
             exit();
         }
 
         if(password_verify($this->password, $user['password'])) {
             session_start();
             $_SESSION['username'] = $this->username;
-            $_SESSION['role_id'] = $this->username;
+            $_SESSION['role_id'] = $user['role_id'];
 
             header('Location: ../phpblog2/home.php');
+            
         } else {
-            header('Location: ../phpblog2/notAllowed.php');
-            exit();
+            header('Location: ../phpblog2/login.php');
         }
+    }
+
+    public function logOut() {
+        session_start();
+        $_SESSION = array();
+        session_destroy();
+
+        header('Location: ../phpblog2/home.php');
+        exit();
+    }
+
+    public function fetchAll() {
+        $query = 'select * from users';
+        $results = $this->db->execute($query, array());
+        return $results->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function fetchOne($id) {
+        $query = 'select * from users WHERE id = :id';
+        $params = array('id' => $id);
+        $results = $this->db->execute($query, $params);
+        return $results->fetch(PDO::FETCH_ASSOC);
     }
 }

@@ -7,8 +7,13 @@
 </head>
 <?php
     include_once 'classes/class.posts.php';
+    include_once 'classes/class.comment.php';
+
     $post = new Post();
     $post = $post->fetchOne($_GET['id']);
+    
+    $comments = new Comment();
+    $comments = $comments->fetchAll($_GET['id']);
 ?>
 <body>
     <section class='link'>
@@ -19,5 +24,14 @@
         <p><?php echo $post['description']; ?></p>
         <p><?php echo $post['content']; ?></p>
     </section>  
+    <section id='comments'>
+        <h1>Comments</h1>
+        <?php foreach($comments as $comment) { ?>
+            <section class='comment'>
+                <p style='font-weight: bold;'><?php echo $comment['name']; ?></p>
+                <p><?php echo $comment['message']; ?></p>
+            </section>
+        <?php } ?>
+    </section>
 </body>
 </html>

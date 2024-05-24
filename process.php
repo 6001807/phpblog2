@@ -5,11 +5,17 @@ include_once 'classes/class.database.php';
 
 $db = new Database();
 $db->connect();
+session_start();
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     if(isset($_POST['login'])) {
         $user = new User($_POST['username'], $_POST['password']);
         $user->logIn();
+    }
+
+    if(isset($_POST['logout'])) {
+        $user = new User($_POST['username'], $_POST['password']);
+        $user->logOut();
     }
 
     if(isset($_POST['newUser'])) {

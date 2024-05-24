@@ -22,6 +22,12 @@ class Post {
         $this->db->execute($query, $params);  
     }
 
+    public function delete($id) {
+        $query = 'delete from posts WHERE id = :id';
+        $params = array('id' => $id);
+        $this->db->execute($query, $params);    
+    }
+
     public function fetchAll() {
         $query = 'select * from posts';
         $results = $this->db->execute($query, array());
