@@ -13,7 +13,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     if(isset($_POST['newUser'])) {
-        $newUser = new User($_POST['username'], $_POST['password']);
+        $newUser = new User($_POST['username'], $_POST['password'], $_POST['role_id']);
         $newUser->create();
         header('Location: ../phpblog2/admin.php');
     }

@@ -5,10 +5,12 @@ class User {
     private $db;
     private $username;
     private $password;
+    private $role_id;
 
-    public function __construct($username, $password) {
+    public function __construct($username, $password, $role_id = 0) {
         $this->username = $username;
         $this->password = $password;
+        $this->role_id = $role_id;
 
         $this->db = new Database();
         $this->db->connect();
@@ -17,8 +19,8 @@ class User {
     public function create() {
         $hashed = password_hash($this->password, PASSWORD_DEFAULT);
 
-        $query = 'INSERT INTO users (username, password) VALUES (:username, :password)';
-        $params = array('username' => $this->username, 'password' => $hashed);
+        $query = 'INSERT INTO users (username, password, role_id) VALUES (:username, :password, :role_id)';
+        $params = array('username' => $this->username, 'password' => $hashed, 'role_id' => $this->role_id);
         $this->db->execute($query, $params);  
     }
 
@@ -41,6 +43,7 @@ class User {
         if(password_verify($this->password, $user['password'])) {
             session_start();
             $_SESSION['username'] = $this->username;
+            $_SESSION['role_id'] = $this->username;
 
             header('Location: ../phpblog2/home.php');
         } else {

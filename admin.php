@@ -23,7 +23,12 @@
             <section class="credentials">
                 <label for="password">Password:</label>
                 <input type="text" name='password' id='password' required>
-            </section>  
+            </section>
+            
+            <section class="credentials-radio">
+                <label>Role:</label><br>
+                <input type="radio" name="role_id" value="1"> Admin<br><input type="radio" name="role_id" value="0" checked> User<br>
+            </section>
 
             <input class='submit' type="submit" name='newUser' value="Submit">
         </form>
@@ -43,7 +48,7 @@
             <section class="credentials">
                 <label for="content">Content:</label>
                 <input type="text" name='content' id='content' required>
-            </section> 
+            </section>
 
             <input class='submit' type="submit" name='newPost' value="Submit">
         </form>
