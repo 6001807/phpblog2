@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel='stylesheet' href='styl.css'>
+    <link rel='stylesheet' href='sty.css'>
 </head>
 <?php
     session_start();
@@ -70,7 +70,7 @@
                 
                 <section class="credentials">
                     <label for="content">Content:</label>
-                    <input type="text" name='content' id='contentinput' required>
+                    <textarea style='width: 250%; height: 200px;' type="text" name='content' id='contentinput' required></textarea>
                 </section>
 
                 <section class="credentials">

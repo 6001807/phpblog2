@@ -4,8 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel='stylesheet' href='./styl.css'>
+    <link rel='stylesheet' href='./sty.css'>
 </head>
+<?php
+    session_start();
+
+    if($_SESSION['role_id'] == 1) {
+?>
 <body>
     <header>
         <section id='logo'>
@@ -30,7 +35,7 @@
     </header>
     <section id='content'>
         <form method='POST' action="process.php" enctype="multipart/form-data">
-            <h2>New post</h2>
+            <h2>Edit post</h2>
             <section class="credentials">
                 <label for="title">Title:</label>
                 <input type="text" name='title' id='title' required> 
@@ -41,9 +46,9 @@
                 <input type="text" name='desc' id='desc' required>
             </section>
             
-            <section class="credentials">
-                <label for="content">Content:</label>
-                <input type="text" name='content' id='contentinput' required>
+            <section class="credential" style='display: flex; flex-direction: column;'>
+                <label for="content" >Content:</label>
+                <textarea style='width: 50%; height: 400px;' type="text" name='content' id='contentinput' required></textarea>
             </section>
 
             <section class="credentials">
@@ -54,5 +59,10 @@
             <input class='submit' type="submit" name='newPost' value="Submit">
         </form>  
     </section>
+<?php
+    } else {
+        header('Location: ../phpblog2/notAllowed.php'); 
+    }
+?>
 </body>
 </html>
