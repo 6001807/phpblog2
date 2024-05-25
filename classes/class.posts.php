@@ -26,6 +26,17 @@ class Post {
         $this->db->execute($query, $params);  
     }
 
+    public function edit($id) {
+        $query = 'UPDATE posts SET title = :title, description = :description, content = :content WHERE id = :id';
+        $params = array(
+            'title' => $this->title,
+            'description' => $this->description,
+            'content' => $this->text,
+            'id' => $id
+        );
+        $this->db->execute($query, $params);  
+    }
+
     public function delete($id) {
         $query = 'delete from posts WHERE id = :id';
         $params = array('id' => $id);

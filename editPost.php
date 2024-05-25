@@ -7,7 +7,11 @@
     <link rel='stylesheet' href='./sty.css'>
 </head>
 <?php
+    include_once 'classes/class.posts.php';
+
     session_start();
+    $post = new Post();
+    $post = $post->fetchOne($_GET['id']);
 
     if($_SESSION['role_id'] == 1) {
 ?>
@@ -36,27 +40,24 @@
     <section id='content'>
         <form method='POST' action="process.php" enctype="multipart/form-data">
             <h2>Edit post</h2>
+            <img style='width: 400px;'src="<?php echo $post['image']; ?>" alt="">
             <section class="credentials">
+                <input type="hidden" name='id' id='id' value='<?php echo $post['id']; ?>'> 
                 <label for="title">Title:</label>
-                <input type="text" name='title' id='title' required> 
+                <input type="text" name='title' id='title' value='<?php echo $post['title']; ?>' required> 
             </section>
             
             <section class="credentials">
                 <label for="desc">Description:</label>
-                <input type="text" name='desc' id='desc' required>
+                <input type="text" name='desc' value='<?php echo $post['description']; ?>' id='desc' required>
             </section>
             
             <section class="credential" style='display: flex; flex-direction: column;'>
                 <label for="content" >Content:</label>
-                <textarea style='width: 50%; height: 400px;' type="text" name='content' id='contentinput' required></textarea>
+                <textarea style='width: 50%; height: 400px;' type="text" name='content' id='contentinput' required><?php echo $post['content']; ?></textarea>
             </section>
 
-            <section class="credentials">
-                <label for="fileToUpload">Image:</label>
-                <input style='padding: 0;' type="file" name="FileToUpload" id="fileToUpload" required>
-            </section>
-
-            <input class='submit' type="submit" name='newPost' value="Submit">
+            <input class='submit' type="submit" name='editPost' value="Submit">
         </form>  
     </section>
 <?php

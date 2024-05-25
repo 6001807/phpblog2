@@ -28,7 +28,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         if(isset($_FILES['FileToUpload'])) {
             $dir = 'img/';
-            $uploadLoc = $dir . $_FILES['FileToUpload']['name'];
+            $uploadLoc = $dir . basename($_FILES['FileToUpload']['name']);
 
             if(file_exists($uploadLoc)) {
                 echo 'Image already exists';
@@ -39,6 +39,24 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $newPost = new Post($_POST['title'], $_POST['desc'], $_POST['content'], $uploadLoc);
         $newPost->create();
+        header('Location: ../phpblog2/admin.php');
+    }
+
+    if(isset($_POST['editPost'])) {
+        $post = new Post($_POST['title'], $_POST['desc'], $_POST['content']);
+        $post->edit($_POST['id']);
+        header('Location: ../phpblog2/post.php?id=' . $_POST['id']);
+    }
+
+    if(isset($_POST['deletePost'])) {
+        $post= new Post();
+        $post->delete($_POST['deletePost']);
+        header('Location: ../phpblog2/admin.php');
+    }
+
+    if(isset($_POST['deleteUser'])) {
+        $user= new User();
+        $user->delete($_POST['deleteUser']);
         header('Location: ../phpblog2/admin.php');
     }
 }

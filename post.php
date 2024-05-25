@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel='stylesheet' href='./styl.css'>
+    <link rel='stylesheet' href='./sty.css'>
 </head>
 <?php
     include_once 'classes/class.posts.php';
@@ -41,6 +41,7 @@
     <section id='content'>
         <section class="postitem">
             <h2><?php echo $post['title']; ?></h2>
+            <img style='width: 400px;'src="<?php echo $post['image']; ?>" alt="">
             <p><?php echo $post['description']; ?></p>
             <p><?php echo $post['content']; ?></p>
         </section>  
