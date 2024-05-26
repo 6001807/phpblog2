@@ -44,7 +44,7 @@
                 <section class='post-info'>
                     <h2><?php echo $post['title']; ?></h2>
                     <p style='font-style: italic;'><?php echo $post['description']; ?></p>
-                    <p><?php echo $post['content']; ?></p>
+                    <p style='width: 100%; word-wrap: break-word; word-break: break-all;'><?php echo $post['content']; ?></p>
                     <section class='linkto'>
                         <p><a href="post.php?<?php echo 'id=' . $post['id'] ?>">Link to post</a></p>
                     </section>

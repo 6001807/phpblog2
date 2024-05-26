@@ -65,7 +65,7 @@ header {
     background-color: rgba(255,86,23,255);
     width: 100px;
     height: 30px;
-    color: white;
+    color: rgb(255, 255, 255);
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -79,6 +79,14 @@ header {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.logine:hover {
+    background-color: rgb(238, 127, 0);    
+}
+
+.login:hover {
+    background-color: rgb(238, 127, 0);    
 }
 
 #post-list {
@@ -130,6 +138,10 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;   
+}
+
+.linkto:hover {
+    background-color: rgb(238, 127, 0);    
 }
 
 .linkto > p > a {

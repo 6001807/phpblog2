@@ -9,7 +9,7 @@
 <?php
     include_once 'classes/class.posts.php';
     include_once 'classes/class.user.php';
-  
+
     $post = new Post();
     $posts = $post->fetchAll("DESC");
 
@@ -47,7 +47,7 @@
                 <h2>New user</h2>
                 <section class="credentials">
                     <label for="username">Username:</label>
-                    <input type="text" name='username' id='username' required> 
+                    <input type="text" name='username' id='username' maxlength="30" required> 
                 </section>
                 
                 <section class="credentials">
@@ -67,17 +67,17 @@
                 <h2>New post</h2>
                 <section class="credentials">
                     <label for="title">Title:</label>
-                    <input type="text" name='title' id='title' required> 
+                    <input type="text" name='title' id='title' maxlength="40" required> 
                 </section>
                 
                 <section class="credentials">
                     <label for="desc">Description:</label>
-                    <input type="text" name='desc' id='desc' required>
+                    <input type="text" name='desc' id='desc' maxlength="30" required>
                 </section>
                 
                 <section class="credentials">
                     <label for="content">Content:</label>
-                    <textarea style='width: 250%; height: 200px;' type="text" name='content' id='contentinput' required></textarea>
+                    <textarea style='resize: none; width: 500px; height: 110px;' type="text" name='content' id='contentinput' required></textarea>
                 </section>
 
                 <section class="credentials">

@@ -41,9 +41,19 @@
     <section id='content'>
         <section class="postitem">
             <h2><?php echo $post['title']; ?></h2>
+            <?php
+                include_once 'classes/class.user.php';
+                $dateTimeObject = new DateTime($post['created_on']);
+                $date = $dateTimeObject->format('d-m-Y H:i');
+
+                $author = new User();
+                $author = $author->fetchOne($post['user_id']);
+            ?>
+            <p style='font-size: 14px; font-style: italic;'><?php echo "Author: " . $author['username']; ?></p>
+            <p style='font-size: 14px; font-style: italic;'><?php echo "Posted on: " . $date ?></p>
             <img style='width: 400px;'src="<?php echo $post['image']; ?>" alt="">
-            <p><?php echo $post['description']; ?></p>
-            <p><?php echo $post['content']; ?></p>
+            <p style='font-style: italic;'><?php echo $post['description']; ?></p>
+            <p style='width: 60%; word-wrap: break-word; word-break: break-all;'><?php echo $post['content']; ?></p>
         </section>  
         <section id='comments'>
             <h1><?php echo count($comments) ?> Comments</h1>
@@ -72,7 +82,7 @@
                             <?php } ?>
                         </form>
                     </section>
-                    <p><?php echo $comment['message']; ?></p>
+                    <p style='width: 100%; word-wrap: break-word; word-break: break-all;'><?php echo $comment['message']; ?></p>
                 </section>
             <?php } ?>
         </section>
