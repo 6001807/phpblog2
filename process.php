@@ -1,11 +1,11 @@
 <?php
 include_once 'classes/class.user.php';
 include_once 'classes/class.posts.php';
+include_once 'classes/class.comment.php';
 include_once 'classes/class.database.php';
 
 $db = new Database();
 $db->connect();
-session_start();
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     if(isset($_POST['login'])) {
@@ -22,6 +22,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         $newUser = new User($_POST['username'], $_POST['password'], $_POST['role_id']);
         $newUser->create();
         header('Location: ../phpblog2/admin.php');
+    }
+
+    if(isset($_POST['newComment'])) {
+        $newComment = new Comment($_POST['id'], $_POST['message']);
+        $newComment->create();
+        header('Location: ../phpblog2/post.php?id=' . $_POST['id']);
     }
 
     if(isset($_POST['newPost'])) {
@@ -52,6 +58,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         $post= new Post();
         $post->delete($_POST['deletePost']);
         header('Location: ../phpblog2/admin.php');
+    }
+
+    if(isset($_POST['deleteComment'])) {
+        $comm = new Comment();
+        $comm->delete($_POST['deleteComment']);
+        header('Location: ../phpblog2/post.php?id=' . $_POST['id']);
     }
 
     if(isset($_POST['deleteUser'])) {

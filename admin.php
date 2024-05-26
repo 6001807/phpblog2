@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel='stylesheet' href='sty.css'>
+    <link rel='stylesheet' href='st.css'>
 </head>
 <?php
     include_once 'classes/class.posts.php';
     include_once 'classes/class.user.php';
-    session_start();
+  
     $post = new Post();
     $posts = $post->fetchAll("DESC");
 

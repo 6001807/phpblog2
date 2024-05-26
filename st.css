@@ -71,6 +71,16 @@ header {
     cursor: pointer;
 }
 
+.logine {
+    background-color: rgba(255,86,23,255);
+    width: 50px;
+    height: 20px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 #post-list {
     padding-left: 50px;
     padding-right: 50px;
@@ -126,4 +136,36 @@ header {
     text-decoration: none;
     color: rgb(255, 255, 255);
     font-weight: bold;
+}
+
+#comments {
+    margin-top: 50px;
+}
+
+#comments form {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+#comments form textarea {
+    width: 30%;
+    min-width: 400px;
+    resize: none;
+}
+
+#comments form input{
+    height: 36px;
+    background-color: rgba(255,86,23,255);
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.comment {
+    width: 30%;
+    min-width: 400px;
+    border-bottom: 1px solid rgb(201, 201, 201);
 }

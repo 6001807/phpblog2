@@ -10,6 +10,7 @@ class Post {
     private $user;
 
     public function __construct($title = null, $description = null, $text = null, $image = null, $user = null) {
+        session_start();
         $this->user = isset($_SESSION['id']) ? $_SESSION['id'] : ''; 
         $this->title = $title;
         $this->description = $description;
@@ -38,6 +39,10 @@ class Post {
     }
 
     public function delete($id) {
+        $querycom = 'DELETE FROM comments WHERE post_id = :id';
+        $paramscom = array('id' => $id);
+        $this->db->execute($querycom, $paramscom);  
+
         $query = 'delete from posts WHERE id = :id';
         $params = array('id' => $id);
         $this->db->execute($query, $params);    

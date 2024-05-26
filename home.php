@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel='stylesheet' href='./sty.css'>
+    <link rel='stylesheet' href='./st.css'>
 </head>
 <?php
     include_once 'classes/class.posts.php';
     $post = new Post();
     $allPosts = $post->fetchAll("DESC");
-    session_start();
+   
+
 ?>
 <body>
     <header>
@@ -47,6 +48,11 @@
                     <section class='linkto'>
                         <p><a href="post.php?<?php echo 'id=' . $post['id'] ?>">Link to post</a></p>
                     </section>
+                    <?php
+                        $dateTimeObject = new DateTime($post['created_on']);
+                        $date = $dateTimeObject->format('d-m-Y');
+                    ?>
+                    <p style='font-size: 14px; font-style: italic;'><?php echo $date ?></p>
                 </section>
             </section>
         <?php } ?>
