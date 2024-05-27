@@ -49,8 +49,8 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        height: 30vh;
         border-radius: 10px;
+        padding-bottom: 50px;
     }
 
     #content form img{

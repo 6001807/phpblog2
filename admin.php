@@ -43,7 +43,7 @@
     <section id='panel'>
         <h1>Welcome <?php echo $_SESSION['username']; ?></h1>
         <section id='new'>
-            <form method='POST' action="process.php">
+            <form method='POST' style='display:flex;flex-direction:column;gap:5px;' action="process.php">
                 <h2>New user</h2>
                 <section class="credentials">
                     <label for="username">Username:</label>
@@ -60,10 +60,10 @@
                     <input type="radio" name="role_id" value="1"> Admin<br><input type="radio" name="role_id" value="0" checked> User<br>
                 </section>
 
-                <input class='submit' type="submit" name='newUser' value="Submit">
+                <input class='submit' style='width: 70px;' type="submit" name='newUser' value="Submit">
             </form>
 
-            <form method='POST' action="process.php" enctype="multipart/form-data">
+            <form style='display:flex;flex-direction:column;gap: 5px;'method='POST' action="process.php" enctype="multipart/form-data">
                 <h2>New post</h2>
                 <section class="credentials">
                     <label for="title">Title:</label>
@@ -85,7 +85,7 @@
                     <input style='padding: 0;' type="file" name="FileToUpload" id="fileToUpload" required>
                 </section>
 
-                <input class='submit' type="submit" name='newPost' value="Submit">
+                <input class='submit' style='width: 70px;' type="submit" name='newPost' value="Submit">
             </form>
         </section>
         <section style='margin-top: 50px; margin-bottom: 50px; display: flex; gap: 100px;' id='allposts'>

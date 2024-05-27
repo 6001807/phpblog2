@@ -53,7 +53,7 @@
             
             <section class="credential" style='display: flex; flex-direction: column;'>
                 <label for="content" >Content:</label>
-                <textarea style='width: 50%; height: 400px;' type="text" name='content' id='contentinput' required><?php echo $post['content']; ?></textarea>
+                <textarea style='width: 50%; height: 200px;' type="text" name='content' id='contentinput' required><?php echo $post['content']; ?></textarea>
             </section>
 
             <input class='submit' type="submit" name='editPost' value="Submit">

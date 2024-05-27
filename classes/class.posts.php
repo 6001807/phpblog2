@@ -49,7 +49,7 @@ class Post {
     }
 
     public function fetchAll($direction) {
-        $query = 'SELECT * FROM posts ORDER BY created_on ' . $direction;
+        $query = 'SELECT *, SUBSTRING(content, 1, 400) AS content FROM posts ORDER BY created_on ' . $direction;
         $results = $this->db->execute($query, array());
         return $results->fetchAll(PDO::FETCH_ASSOC);
     }
