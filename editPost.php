@@ -56,7 +56,7 @@
                 <textarea style='width: 50%; height: 200px;' type="text" name='content' id='contentinput' required><?php echo $post['content']; ?></textarea>
             </section>
 
-            <input class='submit' type="submit" name='editPost' value="Submit">
+            <input style='margin-bottom: 10px' class='submit' type="submit" name='editPost' value="Submit">
         </form>  
     </section>
 <?php

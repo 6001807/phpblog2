@@ -26,7 +26,7 @@
             
             <section class="credentials">
                 <label for="password">Password:</label>
-                <input type="text" name='password' id='password' required>
+                <input type="password" name='password' id='password' required>
             </section>  
 
             <input class='submit' type="submit" name='login' value="Submit">
