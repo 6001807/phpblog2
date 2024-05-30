@@ -31,20 +31,17 @@ CREATE TABLE IF NOT EXISTS `comments` (
   CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table phpblog.comments: ~11 rows (approximately)
+-- Dumping data for table phpblog.comments: ~8 rows (approximately)
 DELETE FROM `comments`;
 INSERT INTO `comments` (`id`, `post_id`, `name`, `message`, `created_on`) VALUES
-	(33, 31, 'Jake', 'Nice weather!', '2024-05-27 09:40:11'),
-	(34, 31, 'Jake', 'Beautiful landscape!', '2024-05-27 09:41:09'),
-	(35, 27, 'Jake', 'Nice country', '2024-05-27 09:43:24'),
-	(36, 27, 'Jake', 'Peaceful water', '2024-05-27 09:43:35'),
-	(37, 15, 'Jake', 'Save Ukraine!', '2024-05-27 09:45:14'),
-	(38, 31, 'Edwin', 'Chulecouve', '2024-05-27 09:48:06'),
-	(40, 15, 'Edwin', 'Nothing to say', '2024-05-27 09:49:45'),
-	(44, 32, 'Jake', 'dwegegwgrw', '2024-05-30 11:08:06'),
-	(45, 32, 'Jake', 'wwww', '2024-05-30 11:33:28'),
-	(46, 32, 'Jake', 'wwww', '2024-05-30 11:33:28'),
-	(47, 32, 'Jake', 'qqq', '2024-05-30 11:33:32');
+	(33, 31, 'Admin', 'Nice weather!', '2024-05-27 09:40:11'),
+	(34, 31, 'Admin', 'Beautiful landscape!', '2024-05-27 09:41:09'),
+	(35, 27, 'Admin', 'Nice country', '2024-05-27 09:43:24'),
+	(36, 27, 'Admin', 'Peaceful water', '2024-05-27 09:43:35'),
+	(44, 32, 'Admin', 'dwegegwgrw', '2024-05-30 11:08:06'),
+	(45, 32, 'Admin', 'wwww', '2024-05-30 11:33:28'),
+	(46, 32, 'Admin', 'wwww', '2024-05-30 11:33:28'),
+	(47, 32, 'Admin', 'qqq', '2024-05-30 11:33:32');
 
 -- Dumping structure for table phpblog.posts
 CREATE TABLE IF NOT EXISTS `posts` (
@@ -68,7 +65,7 @@ INSERT INTO `posts` (`id`, `title`, `description`, `content`, `image`, `created_
 	(15, 'Russia', 'The good part of Russia', 'The East Slavs emerged as a recognised group in Europe between the 3rd and 8th centuries CE. The first East Slavic state, Kievan Rus\', arose in the 9th century, and in 988, it adopted Orthodox Christianity from the Byzantine Empire. Rus\' ultimately disintegrated, with the Grand Duchy of Moscow growing to become the Tsardom of Russia. By the early 18th century, Russia had vastly expanded through conquest, annexation, and the efforts of Russian explorers, developing into the Russian Empire, which remains the third-largest empire in history', 'img/rus.jpg', '2024-05-24 22:10:09', '2024-05-27 11:16:20', NULL, 1),
 	(27, 'Iceland', 'The land of fire and ice', 'Iceland (Icelandic: Ãsland, pronounced [Ëˆistlant] â“˜)[d] is a Nordic island country between the North Atlantic and Arctic Oceans, on the Mid-Atlantic Ridge between North America and Europe. It is linked culturally and politically with Europe and is the region\'s most sparsely populated country.[12] Its capital and largest city is ReykjavÃ­k, which is home to about 36% of the country\'s roughly 380,000 residents. The official language of the country is Icelandic.', 'img/gintchin-1.jpg', '2024-05-27 11:01:27', '2024-05-27 09:01:27', NULL, 1),
 	(31, 'Norway', 'Beautiful mountains', 'Norway is a Scandinavian country encompassing mountains, glaciers and deep coastal fjords. Oslo, the capital, is a city of green spaces and museums. Preserved 9th-century Viking ships are displayed at Osloâ€™s Viking Ship Museum. Bergen, with colorful wooden houses, is the starting point for cruises to the dramatic Sognefjord. Norway is also known for fishing, hiking and skiing, notably at Lillehammerâ€™s Olympic resort.', 'img/Northern-Norway-Itinerary.jpg.optimal.jpg', '2024-05-27 11:33:25', '2024-05-27 09:33:25', NULL, 1),
-	(32, 'Faroe Islands', 'The island country', 'The Faroe Islands is a self-governing archipelago, part of the Kingdom of Denmark. It comprises 18 rocky, volcanic islands between Iceland and Norway.', 'img/Faroe-Islands_AdobeStock_245756398.jpg', '2024-05-29 11:12:27', '2024-05-29 09:12:27', NULL, 1);
+	(32, 'Faroe Islands', 'The island country', 'The Faroe Islands is a self-governing archipelago, part of the kingdom of Denmark. It comprises 18 rocky, volcanic islands between Iceland and Norway.', 'img/Faroe-Islands_AdobeStock_245756398.jpg', '2024-05-29 11:12:27', '2024-05-30 11:45:02', NULL, 1);
 
 -- Dumping structure for table phpblog.users
 CREATE TABLE IF NOT EXISTS `users` (
@@ -77,16 +74,14 @@ CREATE TABLE IF NOT EXISTS `users` (
   `password` varchar(255) NOT NULL,
   `role_id` int(10) DEFAULT 0,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table phpblog.users: ~4 rows (approximately)
+-- Dumping data for table phpblog.users: ~3 rows (approximately)
 DELETE FROM `users`;
 INSERT INTO `users` (`id`, `username`, `password`, `role_id`) VALUES
-	(1, 'Jake', '$2y$10$AfB1E.pifjlNWm6GmO0hwuRwCZk3YN98BRTOTWozTeD64GYRr61WK', 1),
-	(24, 'Edwin', '$2y$10$2j4ybiuEHLyNCaEbJOEVsegqFAbqqT3kmwoWMapPYHmiy7QWhVlGG', 0),
-	(28, 'ik', '$2y$10$C5MWw4dCU8L0QblhCahxWuqU87cquUsNEwE9gjC5pvnv9kU.RTVt6', 0);
-
-    /* credentials voor admin pagina "Username" = Jake, "Wachtwoord" = lol123
+	(1, 'Admin', '$2y$10$AfB1E.pifjlNWm6GmO0hwuRwCZk3YN98BRTOTWozTeD64GYRr61WK', 1),
+	(29, 'Guest', '$2y$10$SGYbU.jyqKxcZl89NO4UiOQ.hKhdVLRhHVGTVHJxKIIKaeB.Tq7Ee', 0),
+	(31, 'Docent', '$2y$10$4armL4LWWchtex1NW1VEd.zeYUPttCj.UbZI8k43LZ55U3mlW66dm', 0);
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
