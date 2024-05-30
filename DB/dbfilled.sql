@@ -84,7 +84,6 @@ DELETE FROM `users`;
 INSERT INTO `users` (`id`, `username`, `password`, `role_id`) VALUES
 	(1, 'Jake', '$2y$10$AfB1E.pifjlNWm6GmO0hwuRwCZk3YN98BRTOTWozTeD64GYRr61WK', 1),
 	(24, 'Edwin', '$2y$10$2j4ybiuEHLyNCaEbJOEVsegqFAbqqT3kmwoWMapPYHmiy7QWhVlGG', 0),
-	(27, 'wwwqqq', '$2y$10$76we60eqoebiixjWMoRw.OYejQel6dSmMzqvuPIYwYn/WU1IieNUq', 1),
 	(28, 'ik', '$2y$10$C5MWw4dCU8L0QblhCahxWuqU87cquUsNEwE9gjC5pvnv9kU.RTVt6', 0);
 
     /* credentials voor admin pagina "Username" = Jake, "Wachtwoord" = lol123
