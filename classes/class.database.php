@@ -1,17 +1,24 @@
 <?php
 class Database {
+    public static $instance = null;
     protected $conn;
     private $host = 'localhost';
     private $dbName = 'phpblog';
 
-    public function connect() {
+    private function __construct() {
         try {
-            $conn = new PDO("mysql:host=$this->host;dbname=$this->dbName", "root", "");
-            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $this->conn = $conn;
+            $this->conn = new PDO("mysql:host={$this->host};dbname={$this->dbName}", "root", "");
+            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
-            die($e->getMessage());
+            die("Database connection failed: " . $e->getMessage());
         }
+    }
+
+    public static function getConnection() {
+        if(self::$instance === null) {
+            self::$instance = new Database();
+        }
+        return self::$instance;
     }
 
     public function execute($query, $params = array()) {

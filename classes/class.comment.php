@@ -15,8 +15,7 @@ class Comment {
         $this->name = isset($_SESSION['username']) ? $_SESSION['username'] : ''; 
         $this->message = $message;
 
-        $this->db = new Database();
-        $this->db->connect();
+        $this->db = Database::getConnection();
     }
 
     public function create() {

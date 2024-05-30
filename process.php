@@ -4,8 +4,7 @@ include_once 'classes/class.posts.php';
 include_once 'classes/class.comment.php';
 include_once 'classes/class.database.php';
 
-$db = new Database();
-$db->connect();
+$db = Database::getConnection();
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     if(isset($_POST['login'])) {

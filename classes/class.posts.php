@@ -17,8 +17,7 @@ class Post {
         $this->text = $text;
         $this->image = $image;
         
-        $this->db = new Database();
-        $this->db->connect();
+        $this->db = Database::getConnection();
     }
 
     public function create() {

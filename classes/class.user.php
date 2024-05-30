@@ -12,8 +12,7 @@ class User {
         $this->password = $password;
         $this->role_id = $role_id;
 
-        $this->db = new Database();
-        $this->db->connect();
+        $this->db = Database::getConnection();
     }
 
     public function create() {
