@@ -37,11 +37,7 @@ INSERT INTO `comments` (`id`, `post_id`, `name`, `message`, `created_on`) VALUES
 	(33, 31, 'Admin', 'Nice weather!', '2024-05-27 09:40:11'),
 	(34, 31, 'Admin', 'Beautiful landscape!', '2024-05-27 09:41:09'),
 	(35, 27, 'Admin', 'Nice country', '2024-05-27 09:43:24'),
-	(36, 27, 'Admin', 'Peaceful water', '2024-05-27 09:43:35'),
-	(44, 32, 'Admin', 'dwegegwgrw', '2024-05-30 11:08:06'),
-	(45, 32, 'Admin', 'wwww', '2024-05-30 11:33:28'),
-	(46, 32, 'Admin', 'wwww', '2024-05-30 11:33:28'),
-	(47, 32, 'Admin', 'qqq', '2024-05-30 11:33:32');
+	(36, 27, 'Admin', 'Peaceful water', '2024-05-27 09:43:35');
 
 -- Dumping structure for table phpblog.posts
 CREATE TABLE IF NOT EXISTS `posts` (
